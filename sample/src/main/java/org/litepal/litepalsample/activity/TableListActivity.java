@@ -19,12 +19,13 @@ package org.litepal.litepalsample.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.litepal.litepalsample.R;
 import org.litepal.litepalsample.adapter.StringArrayAdapter;

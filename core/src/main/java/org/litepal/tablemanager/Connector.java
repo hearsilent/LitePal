@@ -20,8 +20,9 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+
+import androidx.core.content.ContextCompat;
 
 import org.litepal.LitePalApplication;
 import org.litepal.exceptions.DatabaseGenerateException;
