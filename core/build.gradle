@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 36
@@ -36,4 +37,17 @@ dependencies {
 
 if (hasProperty("BINTRAY_KEY")) {
     apply from: 'bintray.gradle'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.hearsilent.LitePal'
+                artifactId = 'core'
+                version = "${rootProject.ext.releaseVersion}"
+            }
+        }
+    }
 }

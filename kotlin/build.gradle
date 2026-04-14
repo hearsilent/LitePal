@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 36
@@ -45,4 +46,17 @@ dependencies {
 
 if (hasProperty("BINTRAY_KEY")) {
     apply from: 'bintray.gradle'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.hearsilent.LitePal'
+                artifactId = 'kotlin'
+                version = "${rootProject.ext.releaseVersion}"
+            }
+        }
+    }
 }

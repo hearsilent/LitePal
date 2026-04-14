@@ -21,6 +21,10 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
+}
+
+ext {
+    releaseVersion = '3.0.3'
 }
