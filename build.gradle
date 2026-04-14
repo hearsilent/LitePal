@@ -26,5 +26,5 @@ tasks.register('clean', Delete) {
 }
 
 ext {
-    releaseVersion = '3.0.3'
+    releaseVersion = '3.0.4'
 }
