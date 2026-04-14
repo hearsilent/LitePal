@@ -55,22 +55,19 @@ public class AverageSampleActivity extends AppCompatActivity implements OnClickL
 
 	@Override
 	public void onClick(View view) {
-		double result = 0;
-		switch (view.getId()) {
-		case R.id.avg_btn1:
+		int id = view.getId();
+		double result;
+		if (id == R.id.avg_btn1) {
 			result = LitePal.average(Singer.class, "age");
 			mResultText.setText(String.valueOf(result));
-			break;
-		case R.id.avg_btn2:
+		} else if (id == R.id.avg_btn2) {
 			try {
-				result = LitePal.where("age > ?", mAgeEdit.getText().toString()).average(
-						Singer.class, "age");
+				result = LitePal.where("age > ?", mAgeEdit.getText().toString())
+						.average(Singer.class, "age");
 				mResultText.setText(String.valueOf(result));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-		default:
 		}
 	}
 

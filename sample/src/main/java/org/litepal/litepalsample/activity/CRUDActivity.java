@@ -49,21 +49,15 @@ public class CRUDActivity extends AppCompatActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.save_sample_btn:
+		int id = v.getId();
+		if (id == R.id.save_sample_btn) {
 			SaveSampleActivity.actionStart(this);
-			break;
-		case R.id.update_sample_btn:
+		} else if (id == R.id.update_sample_btn) {
 			UpdateSampleActivity.actionStart(this);
-			break;
-		case R.id.delete_sample_btn:
+		} else if (id == R.id.delete_sample_btn) {
 			DeleteSampleActivity.actionStart(this);
-			break;
-		case R.id.query_sample_btn:
+		} else if (id == R.id.query_sample_btn) {
 			QuerySampleActivity.actionStart(this);
-			break;
-		default:
-			break;
 		}
 	}
 

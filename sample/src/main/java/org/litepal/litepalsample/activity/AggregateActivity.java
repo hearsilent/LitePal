@@ -51,24 +51,17 @@ public class AggregateActivity extends AppCompatActivity implements OnClickListe
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.count_sample_btn:
+		int id = v.getId();
+		if (id == R.id.count_sample_btn) {
 			CountSampleActivity.actionStart(this);
-			break;
-		case R.id.max_sample_btn:
+		} else if (id == R.id.max_sample_btn) {
 			MaxSampleActivity.actionStart(this);
-			break;
-		case R.id.min_sample_btn:
+		} else if (id == R.id.min_sample_btn) {
 			MinSampleActivity.actionStart(this);
-			break;
-		case R.id.average_sample_btn:
+		} else if (id == R.id.average_sample_btn) {
 			AverageSampleActivity.actionStart(this);
-			break;
-		case R.id.sum_sample_btn:
+		} else if (id == R.id.sum_sample_btn) {
 			SumSampleActivity.actionStart(this);
-			break;
-		default:
-			break;
 		}
 	}
 

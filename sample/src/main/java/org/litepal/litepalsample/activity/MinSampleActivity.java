@@ -55,13 +55,11 @@ public class MinSampleActivity extends AppCompatActivity implements OnClickListe
 
 	@Override
 	public void onClick(View view) {
-		int result = 0;
-		switch (view.getId()) {
-		case R.id.min_btn1:
+		int result;
+		if (view.getId() == R.id.min_btn1) {
 			result = LitePal.min(Singer.class, "age", Integer.TYPE);
 			mResultText.setText(String.valueOf(result));
-			break;
-		case R.id.min_btn2:
+		} else if (view.getId() == R.id.min_btn2) {
 			try {
 				result = LitePal.where("age > ?", mAgeEdit.getText().toString()).min(
 						Singer.class, "age", Integer.TYPE);
@@ -69,8 +67,6 @@ public class MinSampleActivity extends AppCompatActivity implements OnClickListe
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-		default:
 		}
 	}
 

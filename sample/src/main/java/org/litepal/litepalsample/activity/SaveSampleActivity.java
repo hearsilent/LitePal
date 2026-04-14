@@ -76,8 +76,8 @@ public class SaveSampleActivity extends AppCompatActivity implements OnClickList
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.save_btn:
+		int id = v.getId();
+		if (id == R.id.save_btn) {
 			try {
 				Singer singer = new Singer();
 				singer.setName(mSingerNameEdit.getText().toString());
@@ -91,9 +91,6 @@ public class SaveSampleActivity extends AppCompatActivity implements OnClickList
 				Toast.makeText(this, getString(R.string.error_param_is_not_valid),
 						Toast.LENGTH_SHORT).show();
 			}
-			break;
-		default:
-			break;
 		}
 	}
 

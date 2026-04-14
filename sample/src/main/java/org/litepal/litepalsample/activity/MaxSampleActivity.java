@@ -55,22 +55,19 @@ public class MaxSampleActivity extends AppCompatActivity implements OnClickListe
 
 	@Override
 	public void onClick(View view) {
+		int id = view.getId();
 		int result = 0;
-		switch (view.getId()) {
-		case R.id.max_btn1:
+		if (id == R.id.max_btn1) {
 			result = LitePal.max(Singer.class, "age", Integer.TYPE);
 			mResultText.setText(String.valueOf(result));
-			break;
-		case R.id.max_btn2:
+		} else if (id == R.id.max_btn2) {
 			try {
-				result = LitePal.where("age < ?", mAgeEdit.getText().toString()).max(
-						Singer.class, "age", Integer.TYPE);
+				result = LitePal.where("age < ?", mAgeEdit.getText().toString())
+						.max(Singer.class, "age", Integer.TYPE);
 				mResultText.setText(String.valueOf(result));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-		default:
 		}
 	}
 

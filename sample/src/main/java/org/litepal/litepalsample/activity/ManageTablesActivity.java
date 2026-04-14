@@ -45,15 +45,11 @@ public class ManageTablesActivity extends AppCompatActivity implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.current_model_structure_btn:
+		int id = v.getId();
+		if (id == R.id.current_model_structure_btn) {
 			ModelListActivity.actionStart(this);
-			break;
-		case R.id.operate_database_btn:
+		} else if (id == R.id.operate_database_btn) {
 			TableListActivity.actionStart(this);
-			break;
-		default:
-			break;
 		}
 	}
 

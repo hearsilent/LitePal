@@ -82,8 +82,7 @@ public class UpdateSampleActivity extends AppCompatActivity implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.update_btn1:
+		if (v.getId() == R.id.update_btn1) {
 			try {
 				Singer singer = new Singer();
 				singer.setName(mSingerNameEdit.getText().toString());
@@ -100,8 +99,7 @@ public class UpdateSampleActivity extends AppCompatActivity implements OnClickLi
 				Toast.makeText(this, getString(R.string.error_param_is_not_valid),
 						Toast.LENGTH_SHORT).show();
 			}
-			break;
-		case R.id.update_btn2:
+		} else if (v.getId() == R.id.update_btn2) {
 			try {
 				Singer singer = new Singer();
 				singer.setName(mSingerNameEdit.getText().toString());
@@ -118,9 +116,6 @@ public class UpdateSampleActivity extends AppCompatActivity implements OnClickLi
 				Toast.makeText(this, getString(R.string.error_param_is_not_valid),
 						Toast.LENGTH_SHORT).show();
 			}
-			break;
-		default:
-			break;
 		}
 	}
 

@@ -55,22 +55,19 @@ public class SumSampleActivity extends AppCompatActivity implements OnClickListe
 
 	@Override
 	public void onClick(View view) {
+		int id = view.getId();
 		int result = 0;
-		switch (view.getId()) {
-		case R.id.sum_btn1:
+		if (id == R.id.sum_btn1) {
 			result = LitePal.sum(Singer.class, "age", Integer.TYPE);
 			mResultText.setText(String.valueOf(result));
-			break;
-		case R.id.sum_btn2:
+		} else if (id == R.id.sum_btn2) {
 			try {
-				result = LitePal.where("age > ?", mAgeEdit.getText().toString()).sum(
-						Singer.class, "age", Integer.TYPE);
+				result = LitePal.where("age > ?", mAgeEdit.getText().toString())
+						.sum(Singer.class, "age", Integer.TYPE);
 				mResultText.setText(String.valueOf(result));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-		default:
 		}
 	}
 

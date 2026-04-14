@@ -77,8 +77,8 @@ public class DeleteSampleActivity extends AppCompatActivity implements OnClickLi
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.delete_btn1:
+		int id = v.getId();
+		if (id == R.id.delete_btn1) {
 			try {
 				int rowsAffected = LitePal.delete(Singer.class,
 						Long.parseLong(mSingerIdEdit.getText().toString()));
@@ -92,12 +92,11 @@ public class DeleteSampleActivity extends AppCompatActivity implements OnClickLi
 				Toast.makeText(this, getString(R.string.error_param_is_not_valid),
 						Toast.LENGTH_SHORT).show();
 			}
-			break;
-		case R.id.delete_btn2:
+		} else if (id == R.id.delete_btn2) {
 			try {
 				int rowsAffected = LitePal.deleteAll(Singer.class, "name=? and age=?",
-						mNameToDeleteEdit.getText().toString(), mAgeToDeleteEdit.getText()
-								.toString());
+						mNameToDeleteEdit.getText().toString(),
+						mAgeToDeleteEdit.getText().toString());
 				Toast.makeText(
 						this,
 						String.format(getString(R.string.number_of_rows_affected),
@@ -108,9 +107,6 @@ public class DeleteSampleActivity extends AppCompatActivity implements OnClickLi
 				Toast.makeText(this, getString(R.string.error_param_is_not_valid),
 						Toast.LENGTH_SHORT).show();
 			}
-			break;
-		default:
-			break;
 		}
 	}
 

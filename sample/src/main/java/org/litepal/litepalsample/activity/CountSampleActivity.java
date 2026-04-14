@@ -55,22 +55,19 @@ public class CountSampleActivity extends AppCompatActivity implements OnClickLis
 
 	@Override
 	public void onClick(View view) {
-		int result = 0;
-		switch (view.getId()) {
-		case R.id.count_btn1:
+		int id = view.getId();
+		int result;
+		if (id == R.id.count_btn1) {
 			result = LitePal.count(Singer.class);
 			mResultText.setText(String.valueOf(result));
-			break;
-		case R.id.count_btn2:
+		} else if (id == R.id.count_btn2) {
 			try {
-				result = LitePal.where("age > ?", mAgeEdit.getText().toString()).count(
-						Singer.class);
+				result = LitePal.where("age > ?", mAgeEdit.getText().toString())
+						.count(Singer.class);
 				mResultText.setText(String.valueOf(result));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-		default:
 		}
 	}
 
